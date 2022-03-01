@@ -1,0 +1,28 @@
+{
+  "name": "myrecipe",
+  "version": "1.0.0",
+  "description": "A social networking site for customer to try different recipes from all around world. The ability to submit their own recipes , rate and comment on recipes is also available.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pattiqus/myRecipe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pattiqus/myRecipe/issues"
+  },
+  "homepage": "https://github.com/Pattiqus/myRecipe#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.17.0"
+  }
+}
