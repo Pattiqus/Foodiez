@@ -15,22 +15,7 @@ RecipeIngrediants.init(
       autoIncrement: true
     },
 
-    recipe_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'recipe',
-        key: 'id',
-        unique: false
-      }
-    },
-    ingrediants_id:{
-      type:DataTypes.INTEGER,
-      references:{
-        model:'ingrediants',
-        key:'id',
-        unique: false
-      }
-    }
+  
   },
   {
     sequelize,

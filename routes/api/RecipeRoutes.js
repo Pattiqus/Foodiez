@@ -8,7 +8,7 @@ router.get("/",  async(req, res) => {
 
     try {
       const Data = await Recipe.findAll({
-          include: [{ model: Ingrediants, through : RecipeIngrediants, as : 'ri'}]
+          include: [{ model: Ingrediants, through : RecipeIngrediants}]
       });
       res.status(200).json(Data);
     } catch (err) {

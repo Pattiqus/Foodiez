@@ -9,8 +9,7 @@ Recipe.belongsToMany(Ingrediants, {
   through: {
     model: RecipeIngrediants,
     unique: false,
-  },
-as: 'ri'
+  }
 
 });
 
@@ -19,8 +18,8 @@ Ingrediants.belongsToMany(Recipe, {
   through: {
     model: RecipeIngrediants,
     unique: false,
-  }, 
-  as: 'ri'
+  } 
+
 
 });
 
