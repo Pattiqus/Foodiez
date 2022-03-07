@@ -1,58 +1,279 @@
-<div class="navbar">
-  <nav>
-    <a href="#" class="brand">
-      <h1>Title</h1>
-    </a>
-    <a href="#">
-      <h1>Create Recipe</h1>
-    </a>
-  </nav>
+<div class="ui fixed inverted menu navbar">
+  {{!-- <div class="ui container"> --}}
+    <a href="#" class="header item">
 
+      Project Name
+    </a>
+    {{! <a href="#" class="item">Home</a> }}
+
+    <div class="right menu">
+      {{#if logged_in}}
+
+        <form class="ui tiny form signup-form">
+          <div class="fields">
+            <div class="field">
+
+              <input placeholder="UserName" type="text" />
+            </div>
+            <div class="field">
+
+              <input placeholder="Password" type="text" />
+            </div>
+            <div class="field">
+
+              <button class="ui primary button">
+                Signin
+              </button>
+
+            </div>
+            <div class="field">
+
+              <button class="ui grey button" type="submit">
+                Signup
+              </button>
+
+            </div>
+
+          </div>
+
+        </form>
+      {{else}}
+        <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="Search..." />
+            <i class="search link icon"></i>
+          </div>
+        </div>
+
+        <div class="item">
+          <button class="ui green button" type="submit">
+            Add new recipe
+          </button>
+        </div>
+        <div class="item">
+          <button class="ui red button" type="submit">
+            Logout
+          </button>
+        </div>
+
+      {{/if}}
+    </div>
+
+  </div>
+{{!-- </div> --}}
+
+
+
+<div class="ui stackable  grid container" style="padding-top: 100px">
+
+
+
+
+
+    <div class="four wide column">
+
+
+<div class="ui card">
+  <div class="ui slide masked reveal image">
+    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="visible content">
+    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="hidden content">
+  </div>
+  <div class="content">
+    <a class="header">Team Fu &amp; Hess</a>
+    <div class="meta">
+      <span class="date">Created in Sep 2014</span>
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="users icon"></i>
+      2 Members
+    </a>
+  </div>
 </div>
 
-<div class="home">
-  <div class="recipe-list">
-    <div class="card">
-      <h3>Vegetable pie</h3>
-      <p>45 mins to make</p>
-      <div>Lorem ipsum dolor sit, amet consectetur </div>
-      <a href="#"> Click</a>
-    </div>
+  </div>
 
-    <div class="card">
-      <h3>Vegetable pie</h3>
-      <p>45 mins to make</p>
-      <div>Lorem ipsum dolor sit, amet consectetur </div>
-      <a href="#"> Click</a>
-    </div>
 
-    <div class="card">
-      <h3>Vegetable pie</h3>
-      <p>45 mins to make</p>
-      <div>Lorem ipsum dolor sit, amet consectetur </div>
-      <a href="#"> Click</a>
-    </div>
 
-    <div class="card">
-      <h3>Vegetable pie</h3>
-      <p>45 mins to make</p>
-      <div>Lorem ipsum dolor sit, amet consectetur </div>
-      <a href="#"> Click</a>
-    </div>
+     <div class="four wide column">
 
-    <div class="card">
-      <h3>Vegetable pie</h3>
-      <p>45 mins to make</p>
-      <div>Lorem ipsum dolor sit, amet consectetur </div>
-      <a href="#"> Click</a>
-    </div>
 
-    <div class="card">
-      <h3>Vegetable pie</h3>
-      <p>45 mins to make</p>
-      <div>Lorem ipsum dolor sit, amet consectetur </div>
-      <a href="#"> Click</a>
+<div class="ui card">
+  <div class="ui slide masked reveal image">
+    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="visible content">
+    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="hidden content">
+  </div>
+  <div class="content">
+    <a class="header">Team Fu &amp; Hess</a>
+    <div class="meta">
+      <span class="date">Created in Sep 2014</span>
     </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="users icon"></i>
+      2 Members
+    </a>
+  </div>
+</div>
+
+  </div>
+
+     <div class="four wide column">
+
+
+<div class="ui card">
+  <div class="ui slide masked reveal image">
+    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="visible content">
+    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="hidden content">
+  </div>
+  <div class="content">
+    <a class="header">Team Fu &amp; Hess</a>
+    <div class="meta">
+      <span class="date">Created in Sep 2014</span>
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="users icon"></i>
+      2 Members
+    </a>
+  </div>
+</div>
+
+  </div>
+
+     <div class="four wide column">
+
+
+<div class="ui card">
+  <div class="ui slide masked reveal image">
+    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="visible content">
+    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="hidden content">
+  </div>
+  <div class="content">
+    <a class="header">Team Fu &amp; Hess</a>
+    <div class="meta">
+      <span class="date">Created in Sep 2014</span>
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="users icon"></i>
+      2 Members
+    </a>
+  </div>
+</div>
+
+  </div>
+
+
+
+   <div class="four wide column">
+
+
+<div class="ui card">
+  <div class="ui slide masked reveal image">
+    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="visible content">
+    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="hidden content">
+  </div>
+  <div class="content">
+    <a class="header">Team Fu &amp; Hess</a>
+    <div class="meta">
+      <span class="date">Created in Sep 2014</span>
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="users icon"></i>
+      2 Members
+    </a>
+  </div>
+</div>
+
+  </div>
+
+
+
+     <div class="four wide column">
+
+
+<div class="ui card">
+  <div class="ui slide masked reveal image">
+    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="visible content">
+    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="hidden content">
+  </div>
+  <div class="content">
+    <a class="header">Team Fu &amp; Hess</a>
+    <div class="meta">
+      <span class="date">Created in Sep 2014</span>
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="users icon"></i>
+      2 Members
+    </a>
+  </div>
+</div>
+
+  </div>
+
+     <div class="four wide column">
+
+
+<div class="ui card">
+  <div class="ui slide masked reveal image">
+    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="visible content">
+    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="hidden content">
+  </div>
+  <div class="content">
+    <a class="header">Team Fu &amp; Hess</a>
+    <div class="meta">
+      <span class="date">Created in Sep 2014</span>
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="users icon"></i>
+      2 Members
+    </a>
+  </div>
+</div>
+
+  </div>
+
+     <div class="four wide column">
+
+
+<div class="ui card">
+  <div class="ui slide masked reveal image">
+    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="visible content">
+    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="hidden content">
+  </div>
+  <div class="content">
+    <a class="header">Team Fu &amp; Hess</a>
+    <div class="meta">
+      <span class="date">Created in Sep 2014</span>
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="users icon"></i>
+      2 Members
+    </a>
+  </div>
+</div>
+
   </div>
 
 </div>
+
+
+
+
+
+
+ 
+
