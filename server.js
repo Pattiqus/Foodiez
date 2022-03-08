@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const exphbs = require('express-handlebars');
+const {engine,create} = require('express-handlebars');
 const routes = require('./routes');
 const helpers = require('./utils/helpers');
 
@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ helpers });
+const hbs =create({ helpers });
 
 const sess = {
   secret: process.env.DB_SECRET,
@@ -27,8 +27,13 @@ const sess = {
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
+
+app.set("view engine", "hbs");
+app.engine("hbs", engine({
+  layoutDir:`${__dirname}/views/`,
+  extname:'hbs'
+
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
