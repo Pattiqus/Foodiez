@@ -1,16 +1,22 @@
-const modal= document.querySelector("#myModals")
+const email = document.querySelector('#email-login').value.trim();
+const password = document.querySelector('#password-login').value.trim();
 
-const signupFormHandler = async (event) => {
+const loginFormHandler = async (event) => {
     event.preventDefault();
-    console.log("ok");
 
-
+window.location.replace('/profile');
   }
   
 
 document
   .querySelector(".signup-form")
-  .addEventListener("submit", signupFormHandler);
+  .addEventListener("submit", loginFormHandler);
+
+
+  function signUpHandler() {
+
+    window.location.replace('/signup');
+  }
 
 
 
