@@ -1,9 +1,17 @@
 const router = require('express').Router();
+const { Recipe,Ingrediants,RecipeIngrediants } = require("../../models");
+
 
 router.get('/', async (req, res) => {
   try {
+
+    const Datas = await Recipe.findAll({
+      include: [{ model: Ingrediants, through : RecipeIngrediants}]
+  });
+  const data= Datas.map((data) => data.get({ plain: true }));
+
     res.render('homepage',{
-      isLoggedIn:false
+
     })
   } catch (err) {
     res.status(500).json(err);
@@ -18,7 +26,7 @@ router.get('/profile', (req, res) => {
   //   return;
   // }
 
-  res.render('profile',{isLoggedIn:false});
+
 });
 
 router.get('/signup', (req, res) => {
