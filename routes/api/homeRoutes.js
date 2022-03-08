@@ -3,7 +3,7 @@ const router = require('express').Router();
 router.get('/', async (req, res) => {
   try {
     res.render('homepage',{
-      isLoggedIn:true
+      isLoggedIn:false
     })
   } catch (err) {
     res.status(500).json(err);
@@ -18,7 +18,7 @@ router.get('/profile', (req, res) => {
   //   return;
   // }
 
-  res.render('profile');
+  res.render('profile',{isLoggedIn:false});
 });
 
 router.get('/signup', (req, res) => {
