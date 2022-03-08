@@ -11,9 +11,7 @@ router.get('/', async (req, res) => {
   const data= Datas.map((data) => data.get({ plain: true }));
 
     res.render('homepage',{
-      isLoggedIn:false,
-      data
-      
+
     })
   } catch (err) {
     res.status(500).json(err);
@@ -28,7 +26,7 @@ router.get('/profile', (req, res) => {
   //   return;
   // }
 
-  res.render('profile',{isLoggedIn:true});
+
 });
 
 router.get('/signup', (req, res) => {
