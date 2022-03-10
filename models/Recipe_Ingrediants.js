@@ -15,6 +15,25 @@ RecipeIngrediants.init(
       autoIncrement: true
     },
 
+    recipe_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+          model: "recipe",
+          key: "id"
+      },
+  },
+  ingrediants_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+        model: "ingrediants",
+        key: "id"
+    },
+}
+
+
+
   
   },
   {
