@@ -1,17 +1,42 @@
-<form class="ui form">
+
+<form class=".add-form">
   <div class="field">
-    <label>First Name</label>
-    <input type="text" name="first-name" placeholder="First Name">
+
+    <input type="text" id="recipe_name" placeholder="Title">
   </div>
-  <div class="field">
-    <label>Last Name</label>
-    <input type="text" name="last-name" placeholder="Last Name">
+
+<div class="field">
+
+    <input type="text" id="preperation_time" placeholder="Cooking Time">
   </div>
-  <div class="field">
-    <div class="ui checkbox">
-      <input type="checkbox" tabindex="0" class="hidden">
-      <label>I agree to the Terms and Conditions</label>
-    </div>
-  </div>
-  <button class="ui button" type="submit">Submit</button>
+
+<div class="field">
+
+<div class="ui action input">
+   
+  <input type="text" placeholder="Ingredients" id="ing_text">
+  <button class="ui icon button" type="button" id="add-ing">
+    <i class="plus icon"></i>
+  </button>
+</div>
+</div>
+
+<table class="ui celled table">
+  <thead>
+    <tr><th>ID</th>
+    <th>Ingredients</th>
+
+
+  </tr></thead>
+  <tbody id="ingredients-display">
+
+  
+  </tbody>
+</table>
+
+
+  <button class="ui button" type="button" onclick="handleformSubmit()">Submit</button>
 </form>
+
+
+<script src="./js/add-recipe.js"></script>

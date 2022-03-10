@@ -22,32 +22,38 @@ router.post('/', async (req, res) => {
 // # Login: Route for existing user log in
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findByPk( req.body.login );
+    console.log(req.body);
+    const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
-      res.status(400).json({ message: 'Incorrect username/email or password'});
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect username/email or password'});
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
+      
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
 
-      res.json({ user: userData, message: `You are now logged in as ${userData.username}!`})
-    })
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
-// # Logout: Route for logging out of current session
+
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

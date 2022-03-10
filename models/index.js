@@ -1,6 +1,7 @@
 // import models
 const Recipe = require("./Recipe");
 const Ingrediants = require("./Ingrediants");
+const Image = require("./Image");
 
 const RecipeIngrediants = require("./Recipe_Ingrediants");
 
@@ -23,8 +24,17 @@ Ingrediants.belongsToMany(Recipe, {
 
 });
 
+
+Recipe.hasMany(Image, {
+  foreignKey: 'recipe_id',
+  onDelete: 'CASCADE'
+});
+
+
+
 module.exports = {
   Recipe,
   Ingrediants,
   RecipeIngrediants,
+  Image
 };

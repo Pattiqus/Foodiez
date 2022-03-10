@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Recipe,Ingrediants,RecipeIngrediants } = require("../../models");
+const withAuth = require('../../utils/auth');
 
 
 router.get('/', async (req, res) => {
@@ -11,23 +12,30 @@ router.get('/', async (req, res) => {
   const data= Datas.map((data) => data.get({ plain: true }));
 
     res.render('homepage',{
-
+      isLoggedIn:req.session.logged_in,
+      data
     })
+
+    if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  }
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 
-router.get('/profile', (req, res) => {
+router.get('/profile',withAuth ,(req, res) => {
   // If the user is already logged in, redirect the request to another route
   // if (req.session.logged_in) {
   //   res.redirect('/profile');
   //   return;
   // }
-
+  res.render('profile',{isLoggedIn:true});
 
 });
+
 
 router.get('/signup', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -38,6 +46,18 @@ router.get('/signup', (req, res) => {
 
   res.render('signup',{isLoggedIn:false});
 });
+
+
+router.get('/add-recipe',withAuth ,(req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  // if (req.session.logged_in) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
+  res.render('add-recipe',{isLoggedIn:true});
+
+});
+
 
 
 module.exports = router;
