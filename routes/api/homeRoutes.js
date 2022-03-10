@@ -16,10 +16,10 @@ router.get('/', async (req, res) => {
       data
     })
 
-    if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
-  }
+  //   if (req.session.logged_in) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
   } catch (err) {
     res.status(500).json(err);
   }
