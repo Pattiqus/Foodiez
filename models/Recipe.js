@@ -17,7 +17,7 @@ Recipe.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    Preperation_time: {
+    preperation_time: {
         type: DataTypes.INTEGER,
         allowNull: false
       }

@@ -3,52 +3,32 @@ const { Router } = require("express");
 const { Recipe, Ingrediants, RecipeIngrediants } = require("../../models");
 
 router.post("/", async (req, res) => {
-  let rID = Math.floor(Math.random() * 500);
+  const data = req.body;
 
-  const data = {
-    id: rID,
-    recipe_name: "pizza",
-    Preperation_time: 30,
-    ingrediants: [
-      {
-        name: "onion",
-      },
-      {
-        name: "carrot",
-      },
-    ],
+  const recipeObj = {
+    id: parseInt(data.id),
+    recipe_name: data.recipe_name,
+    preperation_time:parseInt(data.preperation_time),
   };
 
-  const recipeObj ={
-    id: data.id,
-    recipe_name: data.recipe_name,
-    Preperation_time: data.Preperation_time,
-  }
-
   try {
-    console.log(recipeObj)
-     await Recipe.create(
-      recipeObj
-    );
+    console.log(recipeObj);
+    await Recipe.create(recipeObj);
 
-    data.ingrediants.map(async(ingredients) => {
-      let iID = Math.floor(Math.random() * 2000);
-      const ingData={
-       id: iID,
-      name:ingredients.name
-      }
-      await Ingrediants.create(
-            ingData
-      );
+    data.ingrediants.map(async (ingredients) => {
+      const ingData = {
+        id: parseInt(ingredients.id),
+        name: ingredients.name,
+      };
+      await Ingrediants.create(ingData);
 
       await RecipeIngrediants.create({
-        recipe_id: rID,
-        ingrediants_id: iID,
+        recipe_id: parseInt(data.id),
+        ingrediants_id: parseInt(ingredients.id)
       });
     });
 
     res.status(200).json(recipeObj);
-
   } catch (err) {
     res.status(400).json(err);
   }
