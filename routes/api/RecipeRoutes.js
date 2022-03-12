@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Router } = require("express");
-const { Recipe, Ingrediants, RecipeIngrediants } = require("../../models");
+const { Recipe, Ingrediants, RecipeIngrediants, Method } = require("../../models");
+const RecipeMethods = require("../../models/Recipe_Method");
 
 router.post("/", async (req, res) => {
   const data = req.body;
@@ -15,18 +16,31 @@ router.post("/", async (req, res) => {
     console.log(recipeObj);
     await Recipe.create(recipeObj);
 
-    data.ingrediants.map(async (ingredients) => {
-      const ingData = {
-        id: parseInt(ingredients.id),
-        name: ingredients.name,
-      };
-      await Ingrediants.create(ingData);
+  data.ingrediants.map(async (ingredients) => {
+    const ingData = {
+      id: parseInt(ingredients.id),
+      name: ingredients.name,
+    };
+    await Ingrediants.create(ingData);
 
-      await RecipeIngrediants.create({
-        recipe_id: parseInt(data.id),
-        ingrediants_id: parseInt(ingredients.id)
-      });
+    await RecipeIngrediants.create({
+      recipe_id: parseInt(data.id),
+      ingrediants_id: parseInt(ingredients.id)
     });
+  });
+
+  data.Method.map(async (method) => {
+    const ingData = {
+      id: parseInt(method.id),
+      name: method.step,
+    };
+    await Method.create(ingData);
+
+    await RecipeMethods.create({
+      recipe_id: parseInt(data.id),
+      method_id: parseInt(method.id)
+    });
+  });
 
     res.status(200).json(recipeObj);
   } catch (err) {

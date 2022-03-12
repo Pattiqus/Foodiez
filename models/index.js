@@ -2,8 +2,10 @@
 const Recipe = require("./Recipe");
 const Ingrediants = require("./Ingrediants");
 const Image = require("./Image");
+const Method = require("./Method");
 
 const RecipeIngrediants = require("./Recipe_Ingrediants");
+const RecipeMethod = require("./Recipe_Method");
 
 Recipe.belongsToMany(Ingrediants, {
   // Define the third table needed to store the foreign keys
@@ -24,6 +26,13 @@ Ingrediants.belongsToMany(Recipe, {
 
 });
 
+Method.belongsTo(Recipe, {
+  // # Define : Table for storing
+  through: {
+    model: RecipeMethod,
+    unique: false,
+  } 
+})
 
 Recipe.hasMany(Image, {
   foreignKey: 'recipe_id',
@@ -36,5 +45,7 @@ module.exports = {
   Recipe,
   Ingrediants,
   RecipeIngrediants,
-  Image
+  Image,
+  Method,
+  RecipeMethod
 };
