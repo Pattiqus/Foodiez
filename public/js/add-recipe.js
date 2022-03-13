@@ -29,6 +29,7 @@ if(recipe_name &&  preperation_time && table_data.length){
     if (response.ok) {
         alertify.set('notifier','position', 'top-right');
         alertify.success('Succefully Added to the Database');
+        window.location.replace('/profile');
     } else {
         alertify.set('notifier','position', 'top-right');
         alertify.error(response.statusText);
