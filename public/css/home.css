@@ -132,7 +132,7 @@ html {
     height: 100%;
 }
 body {
-    background-color: #58249c!important;
+    /* background-color: #58249c!important; */
     position: absolute;
     top: 0px;
     right: 0px;
