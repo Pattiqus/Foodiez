@@ -1,0 +1,253 @@
+.brands-container {
+    padding-bottom: 20px;
+}
+
+.brands-carousel {
+    position: relative;
+    padding-left: 0;
+    margin: 0;
+    height: 200px;
+    overflow: hidden;
+}
+
+.brands-carousel>picture {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    animation: carousel 15s linear infinite;
+    transform: translateX(100%);
+}
+
+.brands-carousel>picture:nth-child(1) {
+    animation-name: first-picture, carousel;
+    animation-duration: 15s;
+    animation-iteration-count: 1, infinite;
+    animation-delay: 0s, 15s;
+    transform: translateX(0%);
+}
+
+.brands-carousel>picture:nth-child(2) {
+    animation-delay: Calc(15s * 0.33);
+}
+
+.brands-carousel>picture:nth-child(3) {
+    animation-delay: Calc(15s * 0.66);
+}
+
+@keyframes first-picture {
+    0% {
+        transform: translateX(0%);
+    }
+    7.5%,
+    33% {
+        transform: translateX(0);
+    }
+    40.5%,
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes carousel {
+    0% {
+        transform: translateX(100%);
+    }
+    7.5%,
+    33% {
+        transform: translateX(0);
+    }
+    40.5%,
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes first-picture-responsive {
+    0% {
+        transform: translateX(0%);
+    }
+    5.5%,
+    25% {
+        transform: translateX(0);
+    }
+    30.5%,
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes carousel-responsive {
+    0% {
+        transform: translateX(100%);
+    }
+    5.5%,
+    25% {
+        transform: translateX(0);
+    }
+    30.5%,
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@media screen and (min-width: 1068px )  {
+    .brands-carousel {
+        height: 400px;
+    }
+    
+} 
+    
+    @media screen and (min-width: 1068px ) and (max-width: 1782px ) {
+        .brands-carousel {
+        height: 240px;
+        }
+    }
+
+
+    .brands-carousel>picture {
+        animation: carousel-responsive 20s linear infinite;
+    }
+    .brands-carousel>picture:nth-child(1) {
+        animation-name: first-picture-responsive, carousel-responsive;
+        animation-duration: 20s;
+        animation-iteration-count: 1, infinite;
+        animation-delay: 0s, 20s;
+    }
+    .brands-carousel>picture:nth-child(2) {
+        animation-delay: Calc(20s * 0.25);
+    }
+    .brands-carousel>picture:nth-child(3) {
+        animation-delay: Calc(20s * 0.5);
+    }
+    .brands-carousel>picture:nth-child(4) {
+        animation-delay: Calc(20s * 0.75);
+        display: block;
+    }
+
+
+html {
+    margin: 0px;
+    height: 100%;
+}
+body {
+    background-color: #58249c!important;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+
+.ui.inverted.segment {
+    background-color: rgba(115, 6, 143, 0.473)!important;
+    border-radius: 15px!important ;
+    padding-bottom: 20px;
+
+}
+
+.ui.fixed.menu+.ui.grid {
+    background-color: rgb(255, 251, 251)!important;
+    color: black!important;
+    padding-top: 1rem!important;
+    display: block;
+    border-radius: 15px;
+}
+
+h2 {
+    color: black!important;
+    font: italic!important;
+}
+h3 {
+    color: black!important;
+}
+.ui.vertical.stripe.segment {
+    display: block
+}
+
+.hidden.menu {
+    display: none;
+  }
+
+  .masthead.segment {
+    min-height: 700px;
+    padding: 1em 0em;
+  }
+  .masthead .logo.item img {
+    margin-right: 1em;
+  }
+  .masthead .ui.menu .ui.button {
+    margin-left: 0.5em;
+  }
+  .masthead h1.ui.header {
+    margin-top: 1em;
+    margin-bottom: 0em;
+    font-size: 4em;
+    font-weight: normal;
+  }
+  .masthead h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+  }
+
+  .ui.vertical.stripe {
+    padding: 8em 0em;
+  }
+  .ui.vertical.stripe h3 {
+    font-size: 2em;
+  }
+  .ui.vertical.stripe .button + h3,
+  .ui.vertical.stripe p + h3 {
+    margin-top: 3em;
+  }
+  .ui.vertical.stripe .floated.image {
+    clear: both;
+  }
+  .ui.vertical.stripe p {
+    font-size: 1.33em;
+  }
+  .ui.vertical.stripe .horizontal.divider {
+    margin: 3em 0em;
+  }
+
+  .quote.stripe.segment {
+    padding: 0em;
+  }
+  .quote.stripe.segment .grid .column {
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+
+  .footer.segment {
+    padding: 5em 0em;
+  }
+
+  .secondary.pointing.menu .toc.item {
+    display: none;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .ui.fixed.menu {
+      display: none !important;
+    }
+    .secondary.pointing.menu .item,
+    .secondary.pointing.menu .menu {
+      display: none;
+    }
+    .secondary.pointing.menu .toc.item {
+      display: block;
+    }
+    .masthead.segment {
+      min-height: 350px;
+    }
+    .masthead h1.ui.header {
+      font-size: 2em;
+      margin-top: 1.5em;
+    }
+    .masthead h2 {
+      margin-top: 0.5em;
+      font-size: 1.5em;
+    }
+  }
+
