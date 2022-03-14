@@ -3,8 +3,13 @@
     <div class="four wide column">
 
       <div class="ui card">
+        <div class="content">
+          <div class="right floated meta"></div>
+          <img class="ui avatar image" src="https://media.istockphoto.com/photos/be-genuine-be-remarkable-be-worth-connecting-with-picture-id1312133528?s=612x612" />
+          User Id-{{singleData.user_id}}
+        </div>
+
         <div class="ui slide masked reveal image">
-          {{!-- {{#if singleData.images.length}} --}}
 
           <img src={{singleData.images.0.image_link}} class="visible content" />
           <img src={{singleData.images.1.image_link}} class="hidden content" />
@@ -12,12 +17,14 @@
         </div>
         <div class="content">
           <a class="header">{{singleData.recipe_name}}</a>
-          <div class="meta">
-            <span class="date">Time to cook
-              {{singleData.preperation_time}}
-              mins</span>
-          </div>
-
+          <span class="right floated">
+            <i class="heart outline like icon"></i>
+            17 likes
+          </span>
+          <i class="comment icon"></i>
+          3 comments
+        </div>
+        <div class="content">
           <span class="viewbutton">
 
             <button
@@ -30,16 +37,13 @@
           </span>
 
           {{{check_userid singleData.user_id singleData.id}}}
-
         </div>
+
         <div class="extra content">
-
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-
+          <div class="ui large transparent left icon input">
+            <i class="heart outline icon"></i>
+            <input type="text" placeholder="Add Comment..." />
+          </div>
         </div>
       </div>
 

@@ -51,6 +51,32 @@ document.addEventListener("click", async (e) => {
         alert(response.statusText);
       }
     }
+else if(viewid.substr(0, 6) === "delete"){
+
+  alertify.confirm("Delete","Are you sure want to delete recipe",
+  async()=>{
+    
+  const response = await fetch(`/api/recipes/${viewid.substr(7)}`, {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    alertify.success('Deleted Successfully');
+    document.location.replace('/profile');
+  } else {
+    alertify.error('Failed to delete');
+   
+  }
+   
+  },
+  function(){
+    alertify.error('Cancel');
+  });
+
+
+}
+
+
   }
 });
 
