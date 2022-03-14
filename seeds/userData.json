@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "username": "Mario",
     "first_name": "Mario",
     "last_name": "Kart",
@@ -7,6 +8,7 @@
     "password": "password12345"
   },
   {
+    "id": 2,
     "username": "Luigi",
     "first_name": "Luigi",
     "last_name": "Kart",
@@ -14,10 +16,27 @@
     "password": "password12345"
   },
   {
-    "username": "Bowser",
-    "first_name": "Bowser",
-    "last_name": "Kart",
-    "email": "Bowser@gmail.com",
-    "password": "password12345"
-  }
+  "id": 3,
+  "username": "Yoshi",
+  "first_name": "Yoshi",
+  "last_name": "Kart",
+  "email": "Bowser@gmail.com",
+  "password": "password12345"
+  },
+  {
+  "id": 4,
+  "username": "Wario",
+  "first_name": "Wario",
+  "last_name": "Kart",
+  "email": "Wario@gmail.com",
+  "password": "password12345"
+  },
+  {
+  "id": 5,
+  "username": "Toad",
+  "first_name": "Toad",
+  "last_name": "Kart",
+  "email": "Toad@gmail.com",
+  "password": "password12345"
+  } 
 ]
