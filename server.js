@@ -11,8 +11,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up Handlebars.js engine with custom helpers
-const hbs =create({ helpers });
+
 
 const sess = {
   secret: process.env.DB_SECRET,
@@ -31,7 +30,8 @@ app.use(session(sess));
 app.set("view engine", "hbs");
 app.engine("hbs", engine({
   layoutDir:`${__dirname}/views/`,
-  extname:'hbs'
+  extname:'hbs',
+  helpers:helpers
 
 }));
 
