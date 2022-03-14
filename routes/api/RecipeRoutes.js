@@ -94,7 +94,11 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const dbData = await Recipe.findByPk(req.params.id, {
-      include: [{ model: Ingrediants, through: RecipeIngrediants }],
+      include: [{ model: Ingrediants, through: RecipeIngrediants },
+        { model: Steps, through: RecipeSteps },
+        { model: Image },
+      
+      ],
     });
     res.status(200).json(dbData);
   } catch (err) {

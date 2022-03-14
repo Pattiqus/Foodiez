@@ -3,6 +3,9 @@
 const showModal = document.querySelectorAll(".btn1");
 const rName = document.querySelector("#rName");
 const ingList = document.querySelector("#ingredientslist");
+const singleImage = document.querySelector("#singleImage");
+
+const stepList = document.querySelector("#stepslist");
 
 document.addEventListener("click", async function (e) {
   let id = e.target.id;
@@ -10,7 +13,11 @@ document.addEventListener("click", async function (e) {
   if (response.ok) {
     const recipe = await response.json();
     rName.textContent = recipe.recipe_name;
+    singleImage.setAttribute("src",recipe.images[0].image_link)
     // ingList.removeChild()
+
+    $('#ingredientslist').empty();
+    $('#stepslist').empty();
     //crete list of ingredients
     recipe.ingrediants.map((ing) => {
 
@@ -20,7 +27,7 @@ document.addEventListener("click", async function (e) {
       img.classList.add("ui", "avatar", "image");
       img.setAttribute(
         "src",
-        "https://media.istockphoto.com/photos/carrot-picture-id619252960?s=612x612"
+        recipe.images[0].image_link
       );
       parentDiv.appendChild(img);
 
@@ -30,10 +37,19 @@ document.addEventListener("click", async function (e) {
 
       let pTag = document.createElement("p");
       content.appendChild(pTag);
-      pTag.textContent = "name";
+      pTag.textContent = ing.name;
 
       ingList.appendChild(parentDiv);
     });
+
+
+recipe.steps.map((step)=>{
+  let aTag = document.createElement("a");
+  aTag.classList.add("item");
+  aTag.textContent = step.name
+  stepslist.appendChild(aTag);
+})
+
 
     // end of list
   } else {

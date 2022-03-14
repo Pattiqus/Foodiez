@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Recipe,Ingrediants,RecipeIngrediants,Steps,RecipeSteps,Image} = require("../../models");
 const withAuth = require('../../utils/auth');
-
+const store = require("store2");
 
 router.get('/', async (req, res) => {
   try {
@@ -28,26 +28,28 @@ router.get('/', async (req, res) => {
 
 
 // router.get('/profile',withAuth ,async(req, res) => {
-  router.get('/profile',withAuth ,async(req, res) => {
+  router.get('/profile',async(req, res) => {
 try {
 
   const Datas = await Recipe.findAll({
     include: [{ model: Ingrediants, through : RecipeIngrediants},
       { model: Steps, through : RecipeSteps},
-      { model: Image }]
+      { model: Image},
+    
+    
+    ]
 });
-const data= Datas.map((data) => {
-  data.get({ plain: true })
-  
-});
+const mydata= Datas.map((data) =>data.get({ plain: true }));
 
-
+store('user', {id: req.session.user_id}); 
   res.render('profile',
   {isLoggedIn:true, 
-    data,
+    mydata,
+    
     userId:req.session.user_id
     
   });
+
   
 } catch (error) {
   res.status(500).json(error);

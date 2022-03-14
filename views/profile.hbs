@@ -1,25 +1,13 @@
-{{#if data.length}}
-  {{#each data as |singleData|}}
+{{#if mydata.length}}
+  {{#each mydata as |singleData|}}
     <div class="four wide column">
 
       <div class="ui card">
         <div class="ui slide masked reveal image">
           {{!-- {{#if singleData.images.length}} --}}
 
-          <img
-          src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
-            class="visible content"
-          />
-          <img
-        src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
-            class="hidden content"
-          />
-          {{!--     
-    {{else}}
-
-      <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="visible content">
-      <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="hidden content">
-     {{/if}} --}}
+          <img src={{singleData.images.0.image_link}} class="visible content" />
+          <img src={{singleData.images.1.image_link}} class="hidden content" />
 
         </div>
         <div class="content">
@@ -29,12 +17,7 @@
               {{singleData.preperation_time}}
               mins</span>
           </div>
-          {{! <button class="btn btn-block custom-btn" data-toggle="dimmer" data-target="#project-modal">View</button> }}
-          {{! <button class="btn btn-block custom-btn" data-toggle="modal" data-target="#project-modal" onclick="modalLoad()">View</button> }}
 
-          {{! <span data-typeId="123" data-type="topic" data-points="-1" data-important="true" id="the-span"></span> }}
-
-          {{!-- <a href="/profile/?q={{singleData.id}}">Button Text</a> --}}
           <button
             type="button"
             id={{singleData.id}}
@@ -43,14 +26,8 @@
             data-target="#project-modal"
           >view</button>
 
-          {{#if data.length}}
-            <button
-              type="button"
-              id="del-"
-              {{singleData.id}}
-              class="btn2"
-            >Delete</button>
-          {{/if}}
+          {{{check_userid singleData.user_id singleData.user_id}}}
+
         </div>
         <div class="extra content">
 
@@ -69,12 +46,6 @@
 {{else}}<p>No record found</p>
 {{/if}}
 
-{{! <div class="ui page dimmer" id="project-modal">
-  <div class="content">
-    Hello
-  </div>
-</div> }}
-
 <!-- Modal -->
 <div
   class="modal fade custom-modal"
@@ -82,8 +53,8 @@
   tabindex="-1"
   role="dialog"
   aria-labelledby="project-modal-form"
-  aria-hidden="true"
->
+  aria-hidden="true">
+
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -103,9 +74,7 @@
           <div class="ui items">
             <div class="item">
               <div class="image">
-                <img
-                  src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                />
+                <img id="singleImage"/>
               </div>
               <div class="content">
 
@@ -117,16 +86,6 @@
                   <span>Ingredients</span>
 
                   <div id="ingredientslist" class="ui list">
-                    {{! <div class="item">
-                      <img
-                        class="ui avatar image"
-                        src="https://media.istockphoto.com/photos/carrot-picture-id619252960?s=612x612"
-                      />
-                      <div class="content">
-                        <p>Carrot</p>
-
-                      </div>
-                    </div> }}
 
                   </div>
 
@@ -135,8 +94,11 @@
                   <p></p>
                 </div>
                 <div class="extra">
-                  Additional Details
+                  Steps
                 </div>
+                <div id="stepslist" class="ui ordered list">
+
+                  </div>
               </div>
             </div>
 
