@@ -1,5 +1,9 @@
 
 <form class=".add-form">
+    <div class="field">
+
+    <input type="text" id="user_id" value={{userId}} readonly>
+  </div>
   <div class="field">
 
     <input type="text" id="recipe_name" placeholder="Title">
@@ -34,9 +38,74 @@
   </tbody>
 </table>
 
+<div class="field">
+
+<div class="ui action input">
+   
+  <input type="text" placeholder="Steps" id="steps_text">
+  <button class="ui icon button" type="button" id="add-steps">
+    <i class="plus icon"></i>
+  </button>
+</div>
+</div>
+
+<div class="ui ordered list" id="stepslist">
+  {{!-- <a class="item">Getting Started</a>
+  <a class="item">Introduction</a>
+  <a class="item">Review</a> --}}
+</div>
+
+<div class="field">
+
+  
+<div id="drop-area">
+  <p> Note:-We are working on this to upload...please enter your manual path at this time. the format will be C:/Users/mazam/Downloads/1.jpeg ,etc.. 2 Pictures Recommended</p>
+    <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+    <label class="button" for="fileElem">Select some files</label>
+
+
+
+  
+<div class="ui tiny images" id="gallery">
+  {{!-- <img class="ui image" src="https://media.istockphoto.com/photos/image-of-muffin-baking-tray-with-rows-of-homemade-apple-muffins-in-picture-id1318467379">
+  <img class="ui image" src="https://media.istockphoto.com/photos/image-of-muffin-baking-tray-with-rows-of-homemade-apple-muffins-in-picture-id1318467379">
+   --}}
+
+ 
+</div>  
+
+
+
+<div class="ui action input">
+   
+  <input type="text" placeholder="C:/Users/mazam/Downloads/1.jpeg" id="pic_text">
+  <button class="ui icon button" type="button" id="add-pictures">
+    <i class="plus icon"></i>
+  </button>
+</div>
+
+<div class="ui ordered list" id="imagelist">
+  {{!-- <a class="item">Getting Started</a>
+  <a class="item">Introduction</a>
+  <a class="item">Review</a> --}}
+</div>
+</div>
+
+
+
+</div>
+
+
 
   <button class="ui button" type="button" onclick="handleformSubmit()">Submit</button>
 </form>
+
+
+
+
+
+
+
 
 
 <script src="./js/add-recipe.js"></script>

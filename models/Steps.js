@@ -2,38 +2,30 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Image extends Model {}
+class Steps extends Model {}
 
-Image.init(
+Steps.init(
   {
     // define columns
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+     
     },
-    image_link: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-  //   recipe_id: {
-  //     type: DataTypes.INTEGER,
-  //     allowNull: false,
-  //     references: {
-  //         model: "recipe",
-  //         key: "id"
-  //     }
-  // }
-  
+    }
+
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'image',
+    modelName: 'steps',
   }
 );
 
-module.exports = Image;
+module.exports = Steps;

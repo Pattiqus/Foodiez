@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
-class RecipeIngrediants extends Model {}
+class RecipeSteps extends Model {}
 
-RecipeIngrediants.init(
+RecipeSteps.init(
   {
 
      // define columns
@@ -23,11 +23,11 @@ RecipeIngrediants.init(
           key: "id"
       },
   },
-  ingrediant_id: {
+  step_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-        model: "ingrediants",
+        model: "steps",
         key: "id"
     },
 }
@@ -41,8 +41,8 @@ RecipeIngrediants.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'recipe_ingrediants',
+    modelName: 'recipe_steps',
   }
 );
 
-module.exports = RecipeIngrediants;
+module.exports = RecipeSteps;
