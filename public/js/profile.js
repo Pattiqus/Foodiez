@@ -12,8 +12,8 @@ document.addEventListener("click", async function (e) {
   const response = await fetch(`/api/recipes/${id}`);
   if (response.ok) {
     const recipe = await response.json();
-    rName.textContent = recipe.recipe_name;
-    singleImage.setAttribute("src",recipe.images[0].image_link)
+    rName.textContent = recipe?.recipe_name;
+    singleImage.setAttribute("src",recipe?.images[0]?.image_link)
     // ingList.removeChild()
 
     $('#ingredientslist').empty();
