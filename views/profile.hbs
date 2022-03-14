@@ -18,15 +18,18 @@
               mins</span>
           </div>
 
-          <button
-            type="button"
-            id={{singleData.id}}
-            class="btn1"
-            data-toggle="modal"
-            data-target="#project-modal"
-          >view</button>
+          <span class="viewbutton">
 
-          {{{check_userid singleData.user_id singleData.user_id}}}
+            <button
+              type="button"
+              id="view-{{singleData.id}}"
+              class="ui primary button"
+              data-toggle="modal"
+              data-target="#project-modal"
+            >view</button>
+          </span>
+
+          {{{check_userid singleData.user_id singleData.id}}}
 
         </div>
         <div class="extra content">
@@ -53,7 +56,8 @@
   tabindex="-1"
   role="dialog"
   aria-labelledby="project-modal-form"
-  aria-hidden="true">
+  aria-hidden="true"
+>
 
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
@@ -74,7 +78,7 @@
           <div class="ui items">
             <div class="item">
               <div class="image">
-                <img id="singleImage"/>
+                <img id="singleImage" />
               </div>
               <div class="content">
 
@@ -98,7 +102,7 @@
                 </div>
                 <div id="stepslist" class="ui ordered list">
 
-                  </div>
+                </div>
               </div>
             </div>
 

@@ -7,7 +7,7 @@ module.exports = {
    var myStore = store('user')
     if (value1 === myStore.id) {
  
-      return `<button type="button" id=${value2} class="btn2">Delete</button>`;
+      return `<button type="button" id=delete-${value2} class="ui red button">Delete</button>`;
     }
   },
 
