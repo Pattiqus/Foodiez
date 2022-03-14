@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipe,Ingrediants,RecipeIngrediants } = require("../../models");
+const { Recipe,Ingrediants,RecipeIngrediants,Steps,RecipeSteps,Image} = require("../../models");
 const withAuth = require('../../utils/auth');
 
 
@@ -27,14 +27,27 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/profile',withAuth ,async(req, res) => {
+// router.get('/profile',withAuth ,async(req, res) => {
+  router.get('/profile',withAuth ,async(req, res) => {
 try {
 
   const Datas = await Recipe.findAll({
-    include: [{ model: Ingrediants, through : RecipeIngrediants}]
+    include: [{ model: Ingrediants, through : RecipeIngrediants},
+      { model: Steps, through : RecipeSteps},
+      { model: Image }]
 });
-const data= Datas.map((data) => data.get({ plain: true }));
-  res.render('profile',{isLoggedIn:true, data});
+const data= Datas.map((data) => {
+  data.get({ plain: true })
+  
+});
+
+
+  res.render('profile',
+  {isLoggedIn:true, 
+    data,
+    userId:req.session.user_id
+    
+  });
   
 } catch (error) {
   res.status(500).json(error);
@@ -63,7 +76,7 @@ router.get('/add-recipe',withAuth ,(req, res) => {
   //   res.redirect('/profile');
   //   return;
   // }
-  res.render('add-recipe',{isLoggedIn:true});
+  res.render('add-recipe',{isLoggedIn:true,userId:req.session.user_id });
 
 });
 

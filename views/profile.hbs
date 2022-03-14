@@ -1,110 +1,158 @@
-
-
-
-  {{#if data.length}}
+{{#if data.length}}
   {{#each data as |singleData|}}
- <div class="four wide column">
+    <div class="four wide column">
 
+      <div class="ui card">
+        <div class="ui slide masked reveal image">
+          {{!-- {{#if singleData.images.length}} --}}
 
-<div class="ui card">
-  <div class="ui slide masked reveal image">
-     {{!-- {{#if singleData.images.length}} --}}
-
-    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="visible content">
-    <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="hidden content">
-{{!--     
+          <img
+          src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+            class="visible content"
+          />
+          <img
+        src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+            class="hidden content"
+          />
+          {{!--     
     {{else}}
 
       <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" class="visible content">
       <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="hidden content">
      {{/if}} --}}
-  
-  </div>
-  <div class="content">
-    <a class="header">{{singleData.recipe_name}}</a>
-    <div class="meta">
-    <span class="date">Time to cook {{singleData.preperation_time}} mins</span>
+
+        </div>
+        <div class="content">
+          <a class="header">{{singleData.recipe_name}}</a>
+          <div class="meta">
+            <span class="date">Time to cook
+              {{singleData.preperation_time}}
+              mins</span>
+          </div>
+          {{! <button class="btn btn-block custom-btn" data-toggle="dimmer" data-target="#project-modal">View</button> }}
+          {{! <button class="btn btn-block custom-btn" data-toggle="modal" data-target="#project-modal" onclick="modalLoad()">View</button> }}
+
+          {{! <span data-typeId="123" data-type="topic" data-points="-1" data-important="true" id="the-span"></span> }}
+
+          {{!-- <a href="/profile/?q={{singleData.id}}">Button Text</a> --}}
+          <button
+            type="button"
+            id={{singleData.id}}
+            class="btn1"
+            data-toggle="modal"
+            data-target="#project-modal"
+          >view</button>
+
+          {{#if data.length}}
+            <button
+              type="button"
+              id="del-"
+              {{singleData.id}}
+              class="btn2"
+            >Delete</button>
+          {{/if}}
+        </div>
+        <div class="extra content">
+
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+
+        </div>
+      </div>
+
     </div>
-  {{!-- <button class="btn btn-block custom-btn" data-toggle="dimmer" data-target="#project-modal">View</button> --}}
-   <button class="btn btn-block custom-btn" data-toggle="modal" data-target="#project-modal" onclick="modalLoad()">View</button>
-
-
-
-
-
-
-
-
-  </div>
-  <div class="extra content">
-    
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star checked"></span>
-  <span class="fa fa-star"></span>
-  <span class="fa fa-star"></span>
-    
-  </div>
-</div>
-
-  </div>
-    {{/each}}
+  {{/each}}
 
 {{else}}<p>No record found</p>
-    {{/if}}
+{{/if}}
 
-
-{{!-- <div class="ui page dimmer" id="project-modal">
+{{! <div class="ui page dimmer" id="project-modal">
   <div class="content">
     Hello
   </div>
-</div> --}}
+</div> }}
 
+<!-- Modal -->
+<div
+  class="modal fade custom-modal"
+  id="project-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="project-modal-form"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="project-modal-form">View Detail.</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="project-form">
+        <div class="modal-body">
 
+          <div class="ui items">
+            <div class="item">
+              <div class="image">
+                <img
+                  src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                />
+              </div>
+              <div class="content">
 
-     <!-- Modal -->
-  <div class="modal fade custom-modal" id="project-modal" tabindex="-1" role="dialog"
-    aria-labelledby="project-modal-form" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="project-modal-form">View Detail.</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                {{! recipe Name }}
+                <a class="header" id="rName"></a>
+                <div class="meta">
+
+                  {{! ingredients}}
+                  <span>Ingredients</span>
+
+                  <div id="ingredientslist" class="ui list">
+                    {{! <div class="item">
+                      <img
+                        class="ui avatar image"
+                        src="https://media.istockphoto.com/photos/carrot-picture-id619252960?s=612x612"
+                      />
+                      <div class="content">
+                        <p>Carrot</p>
+
+                      </div>
+                    </div> }}
+
+                  </div>
+
+                </div>
+                <div class="description">
+                  <p></p>
+                </div>
+                <div class="extra">
+                  Additional Details
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
-        <form id="project-form">
-          <div class="modal-body">
-           
-<div class="ui items">
-  <div class="item">
-    <div class="image">
-      <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80">
-    </div>
-    <div class="content">
-      <a class="header" id="modalHeader"></a>
-      <div class="meta">
-        <span>Description</span>
-      </div>
-      <div class="description">
-        <p></p>
-      </div>
-      <div class="extra">
-        Additional Details
-      </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >Close</button>
+          {{! <button type="submit" class="btn custom-btn">Submit Project Info</button> }}
+        </div>
+      </form>
     </div>
   </div>
-
 </div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            {{!-- <button type="submit" class="btn custom-btn">Submit Project Info</button> --}}
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
 <script src="./js/profile.js"></script>
-
