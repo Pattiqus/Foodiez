@@ -6,7 +6,6 @@ const {
   Steps,
   RecipeSteps,
   Image,
-  Comments
 } = require("../../models");
 
 const withAuth = require("../../utils/auth");
@@ -85,7 +84,6 @@ router.get("/", async (req, res) => {
         { model: Ingrediants, through: RecipeIngrediants },
         { model: Steps, through: RecipeSteps },
         { model: Image },
-        { model: Comments },
       ],
     });
     res.status(200).json(Data);
@@ -100,8 +98,6 @@ router.get("/:id", async (req, res) => {
       include: [{ model: Ingrediants, through: RecipeIngrediants },
         { model: Steps, through: RecipeSteps },
         { model: Image },
-        { model: Comments },
-      
       ],
     });
     res.status(200).json(dbData);

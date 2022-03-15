@@ -3,7 +3,6 @@ const Recipe = require("./Recipe");
 const Ingrediants = require("./Ingrediants");
 const Image = require("./Image");
 const User = require("./User");
-const Comments = require("./Comments");
 const RecipeIngrediants = require("./Recipe_Ingrediants");
 
 const Steps = require("./Steps");
