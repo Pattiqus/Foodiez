@@ -1,4 +1,6 @@
-[
+const { Steps } = require("../models");
+
+const stepsData = [
     {
         "id": "1",
         "name": "Prepare Ingrediants"
@@ -97,3 +99,7 @@
     }
     
 ]
+
+const stepSeed = () => Steps.bulkCreate(stepsData);
+
+module.exports = stepSeed;

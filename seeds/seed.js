@@ -1,49 +1,29 @@
 const sequelize = require('../config/connection');
-const { User, Recipe, Ingrediants, Steps, RecipeIngrediants, RecipeSteps, Image   } = require('../models');
+const { User, Recipe, Ingrediants, Steps, RecipeIngrediants, RecipeSteps, Image } = require('../models');
 
-const userData = require('./userData.json');
-const recipeData = require('./recipeData.json');
-const ingrediantsData = require('./ingrediantsData.json');
-const stepsData = require("./stepsData.json");
-const imageData = require('./imageData.json');
-const RecipeIngrediantsData  = require('./recipeIngrediantsData.json');
-const RecipeStepsData = require('./recipeStepsData.json');
-
-
-const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
-
-  const users = await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
-  });
-
-  const recipe = await Recipe.bulkCreate(recipeData, {
-    individualHooks: true
-  })
-
-  for (const recipe of recipeData) {
-    await Recipe.create({
-      ...recipe,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
-  const ingrediants = await Ingrediants.bulkCreate(ingrediantsData, {
-    individualHooks: true,
-    returning: true,
-  });
-
-  for (const ingrediants of ingrediantsData) {
-    await Ingrediants.create({
-      ...ingrediants,
-      recipe_id: recipe[Math.floor(Math.random() * recipe.length)].id,
-    });
-  }
+const userSeed = require('./userData.js');
+const recipeSeed = require('./recipeData.js');
+const ingrediantsSeed = require('./ingrediantsData.js');
+const stepSeed = require("./stepsData.js");
+const imageSeed = require('./imageData.js');
+const recipeIngrediantsSeed  = require('./recipeIngrediantsData.js');
+const recipeStepsSeed = require('./recipeStepsData.js');
 
 
-
-  
+const seedAll = async () => {
+  await sequelize.query('SET FOREIGN_KEY_CHECKS=0')
+   .then(() => {
+     return sequelize.sync({ force: true });
+   });
+  await imageSeed();
+  await userSeed();
+  await recipeSeed();
+  await ingrediantsSeed();
+  await stepSeed();
+  await recipeStepsSeed();
+  await recipeIngrediantsSeed();
   process.exit(0);
 };
 
-seedDatabase();
+
+seedAll();

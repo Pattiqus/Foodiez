@@ -1,3 +1,6 @@
+const { Ingrediants } = require("../models");
+
+const ingrediantsData =
 [
     {
         "id": 1,
@@ -48,7 +51,7 @@
         "name": "Mushroom"
     },
     {
-        "id": 12,
+        "id": 13,
         "name": "Chicken Breast"
     },
     {
@@ -96,3 +99,7 @@
         "name": "Cream"
     }
 ]
+
+const ingrediantsSeed = () => Ingrediants.bulkCreate(ingrediantsData);
+
+module.exports = ingrediantsSeed;
