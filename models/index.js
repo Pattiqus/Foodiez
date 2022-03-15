@@ -67,6 +67,7 @@ Comments.belongsTo(Recipe)
 
 
 module.exports = {
+  User,
   Recipe,
   Ingrediants,
   RecipeIngrediants,
