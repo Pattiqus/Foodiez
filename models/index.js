@@ -60,9 +60,6 @@ User.hasMany(Recipe);
 
 Recipe.belongsTo(User)
 
-Recipe.hasMany(Comments);
-
-Comments.belongsTo(Recipe)
 
 
 
@@ -74,5 +71,4 @@ module.exports = {
   Image,
   Steps,
   RecipeSteps,
-  Comments
 };
